@@ -1,42 +1,41 @@
-from typing import Dict
+import pprint
 
-students = {
-    "first_name": "none",
-    "last_name": "none",
-    "address": "none",
-    "phone_number": "none"
-}
-students_list =[]
+# LISTS, DICTIONARIES AND CONDITIONALS #
+students_list = []
+
 
 while True:
 
-    first_name = input('Please enter the student\'s first name. ')
-    last_name = input('Please enter the student\'s last name. ')
+    students = dict.fromkeys(["first_name", "last_name", "address", "phone_number"])
+    students["first_name"] = input('Please enter the student\'s first name: ')
+    students["last_name"] = input('Please enter the student\'s last name: ')
 
-# Prompt user for student's contact information...
-    address = input('Please enter the student\'s address. ')
-    email = input('Please enter the student\'s email. ')
-    phone_number = input('Please enter the student\'s phone_number. ')
-# Print a separator...
+    # Prompt user for student's contact information...
+    students["address"] = input('Please enter the student\'s address: ')
+    students["email"] = input('Please enter the student\'s email: ')
+    students["phone_number"] = input('Please enter the student\'s phone_number: ')
+    # Print a separator...
     print('-' * 18)
 
     confirmation = input('Is this information correct? (y/n) ')
-
     if confirmation == "y":
-        students_list.append({"first_name": first_name, "last_name": last_name,
-                              "address": address, "phone_number": phone_number, "email": email})
+        students_list.append(students)
 
         additional = input(
             "Would you like to add another student?(y/n)")
         if additional == "n":
-            print(students_list)
+
+            print('You\'ve entered the following student profiles:')
+            print('-' * 18)
+            for students in students_list:
+                for key, value in students.items():
+                    print(value)
+
+            break
 
         else:
-               continue
+            continue
 
     else:
 
         continue
-
-# Print a separator...
-print('-' * 9)
