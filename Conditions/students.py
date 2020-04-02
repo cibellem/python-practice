@@ -1,8 +1,6 @@
-import pprint
 
 # LISTS, DICTIONARIES AND CONDITIONALS #
 students_list = []
-
 
 while True:
 
@@ -28,8 +26,9 @@ while True:
             print('You\'ve entered the following student profiles:')
             print('-' * 18)
             for students in students_list:
+                print('-' * 18)
                 for key, value in students.items():
-                    print(value)
+                    print(key, value)
 
             break
 
